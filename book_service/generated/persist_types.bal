@@ -30,7 +30,13 @@ public type BookWithRelations record {|
 
 public type BookTargetType typedesc<BookWithRelations>;
 
-public type BookInsert Book;
+public type BookInsert record {|
+    string title;
+    string isbn;
+    int year;
+    string genre;
+    int authorId;
+|};
 
 public type BookUpdate record {|
     string title?;
@@ -58,7 +64,9 @@ public type AuthorWithRelations record {|
 
 public type AuthorTargetType typedesc<AuthorWithRelations>;
 
-public type AuthorInsert Author;
+public type AuthorInsert record {|
+    string name;
+|};
 
 public type AuthorUpdate record {|
     string name?;
@@ -85,7 +93,11 @@ public type DigitalCopyWithRelations record {|
 
 public type DigitalCopyTargetType typedesc<DigitalCopyWithRelations>;
 
-public type DigitalCopyInsert DigitalCopy;
+public type DigitalCopyInsert record {|
+    int bookId;
+    string fileUrl;
+    string format;
+|};
 
 public type DigitalCopyUpdate record {|
     int bookId?;
